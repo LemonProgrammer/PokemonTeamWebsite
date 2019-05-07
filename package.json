@@ -4,7 +4,9 @@
   "description": "A website that randomly generates pokemon teams and individual pokemons for users to use in pokemon games.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -12,6 +14,11 @@
   },
   "author": "Fernando Blanco, Dakota Miller, Benito Luna, Austin Blandford, Hailey Roberts",
   "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
   "bugs": {
     "url": "https://github.com/LemonProgrammer/PokemonTeamWebsite/issues"
   },
