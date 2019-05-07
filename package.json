@@ -4,7 +4,6 @@
   "description": "A website that randomly generates pokemon teams and individual pokemons for users to use in pokemon games.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
