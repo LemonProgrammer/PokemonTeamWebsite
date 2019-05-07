@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Ketchum";
+    src: url(fonts/Ketchum.otf);
+}
+
+@font-face {
+    font-family: "Pokemon Classic";
+    src: url(fonts/Pokemon\ Classic.ttf);
+}
+
+h1 {
+    font-family: "Ketchum";
+    color: #ffcb05;
+    -webkit-text-stroke: 1px #3b5ba7;
+    font-size: 52px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-family: "Pokemon Classic";
+}
+
+.title {
+    background-color: #f11f1f;
+    display: flex;
+    text-align: center;
+}
