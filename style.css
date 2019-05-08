@@ -8,6 +8,20 @@
     src: url(fonts/Pokemon\ Classic.ttf);
 }
 
+@font-face {
+    font-family: "Athens";
+    src: url(fonts/AthensClassic.ttf);
+}
+
+@font-face {
+    font-family: "Classic";
+    src: url(fonts/classic_memesbruh03.ttf);
+}
+
+html, body {
+    margin: 0;
+}
+
 h1 {
     font-family: "Ketchum";
     color: #ffcb05;
@@ -17,12 +31,29 @@ h1 {
     margin-right: auto;
 }
 
+h2 {
+    font-family: "Classic";
+    color: #0b4ce2;
+    font-size: 40px;
+}
+
 p {
     font-family: "Pokemon Classic";
+    font-size: 14px;
 }
 
 .title {
     background-color: #f11f1f;
     display: flex;
     text-align: center;
+}
+
+.container {
+    display: block;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #CCC;
+    padding: 10px;
+    border: 2px #999 solid;
+    border-top: 0px;
 }
