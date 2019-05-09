@@ -17,7 +17,7 @@ let generateAPI = choice => {
       break;
   };
 
-  loadData();
+  loadSinglePokemon();
 }
 
 let displayAllPokemon = () => {
@@ -25,32 +25,62 @@ let displayAllPokemon = () => {
     let div = document.createElement("div");
     div.id = "poke" + x;
     div.setAttribute('class', 'pokeLink');
-    document.getElementById("main").appendChild(div);
+    document.getElementById("PokemonList").appendChild(div);
   }
 
   newurl = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=807";
-  loadData();
+  loadAllPokemon();
 }
 
-let loadData = () => {
+let loadSinglePokemon = () => {
   request.open('GET', newurl);
-  request.onload = loadComplete;
+  request.onload = loadSingleComplete;
   request.send();
 }
 
-let loadComplete = evt => {
-  pokeData = JSON.parse(request.responseText);
+let loadAllPokemon = () => {
+  request.open('GET', newurl);
+  request.onload = loadAllComplete;
+  request.send();
+}
 
-  try{
+let loadSingleComplete = evt => {
+  pokeData = JSON.parse(request.responseText);
+  console.log(pokeData);
+
+  let name = pokeData.name;
+  let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  try {
     let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
     console.log(types);
-  }catch(err){
+  } catch (err) {
     let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name}`;
     console.log(types);
   }
-    
-  console.log(pokeData);
+
+  let abilities = "";
+  let hiddenAbility = "";
+  pokeData.abilities.forEach(element => {
+    if (element.is_hidden) {
+      hiddenAbility = element.ability.name;
+    } else {
+      abilities += element.ability.name + " ";
+    }
+  });
   
+  document.getElementById("name").innerHTML = capitalizedName;
+  document.getElementById("pic").src = pokeData.sprites.front_default;
+  document.getElementById("dexNum").innerHTML = pokeData.id;
+  document.getElementById("abilities").innerHTML = abilities;
+  document.getElementById("hidden").innerHTML = hiddenAbility;
+  document.getElementById("baseXP").innerHTML = pokeData.base_experience;
+}
+
+let loadAllComplete = evt => {
+  pokeData = JSON.parse(request.responseText);
+  console.log(pokeData);
+
   let x = 1;
 
   do {
@@ -71,9 +101,10 @@ let loadComplete = evt => {
 
 let goToPokemon = (evt) => {
   newurl = url + evt.target.id;
-  console.log(newurl);
+  document.getElementById("PokemonList").style.display = "none";
+  loadSinglePokemon();
 }
 
-// generateAPI("random");
+//generateAPI("random");
 
 displayAllPokemon();
