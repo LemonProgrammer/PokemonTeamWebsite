@@ -1,14 +1,7 @@
-const http = require('http');
-const test = require('./test/test.js');
+const express = require('express');
+const route = require('./routes/route.js')
+const app = express();
 
-http.createServer((req,res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  start();
-}).listen(3000);
+app.get("/", route.index);
 
-start = () => {
-    let pokeData;
-    let url = test.generateAPI('https://pokeapi.co/api/v2/pokemon/');
-    let pokemonObject = test.requestInfoFromAPI(url);
-    test.displayPokeInformation(pokemonObject);
-  };
+app.listen(3000);
