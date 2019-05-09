@@ -1,0 +1,35 @@
+let pokeData;
+let request = new XMLHttpRequest();
+ 
+let url = 'https://pokeapi.co/api/v2/pokemon/';
+let newurl;
+
+let generateAPI = () => {
+    var random = Math.floor(Math.random() * (807 - 1)) + 1;
+    console.log(random);
+    newurl = url + random;
+    loadData();
+}
+
+let loadData = () => {
+  request.open('GET', newurl);
+  request.onload = loadComplete;
+  request.send();
+}
+ 
+let loadComplete = (evt) => {
+  pokeData = JSON.parse(request.responseText);
+
+  try{
+    let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
+    console.log(types);
+  }catch(err){
+    let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name}`;
+    console.log(types);
+  }
+    
+  console.log(pokeData);
+  document.getElementById("name").innerHTML = pokeData.name;
+}
+
+generateAPI();
