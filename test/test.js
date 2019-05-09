@@ -1,11 +1,11 @@
-let generateAPI = (url) => {
+exports.generateAPI = (url) => {
     var random = Math.floor(Math.random() * (807 - 1)) + 1;
     // console.log(random);
     let newurl = url + random;
     return newurl;
 }
 
-let requestInfoFromAPI = (pokeURL) => {
+exports.requestInfoFromAPI = (pokeURL) => {
    let pokeObj = [];
    fetch(pokeURL)
    .then(response => response.json())
@@ -19,7 +19,7 @@ let requestInfoFromAPI = (pokeURL) => {
    return pokeObj;
 };
 
-let displayPokeInformation = (pokeArray) => {
+exports.displayPokeInformation = (pokeArray) => {
   let stringData = "";
   for(let stuff in pokeArray)
   {
@@ -29,11 +29,4 @@ let displayPokeInformation = (pokeArray) => {
   document.getElementById('pokeInfo').innerHTML = stringData;
 };
 
-let start = () => {
-  let pokeData;
-  let url = 'https://pokeapi.co/api/v2/pokemon/';
-  let pokemonObject = requestInfoFromAPI(url);
-  displayPokeInformation(pokemonObject);
-};
 
-start();
