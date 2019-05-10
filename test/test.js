@@ -4,7 +4,7 @@ let request = new XMLHttpRequest();
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
 
-let generateAPI = choice => {
+let generateAPI = (choice, id) => {
   switch (choice) {
     case "random":
       let random = Math.floor(Math.random() * (807 - 1)) + 1;
@@ -12,7 +12,6 @@ let generateAPI = choice => {
       break;
 
     case "choose":
-      let id = 0;
       newurl = url + id;
       break;
   };
@@ -68,7 +67,7 @@ let loadSingleComplete = evt => {
       abilities += element.ability.name + " ";
     }
   });
-  
+
   document.getElementById("name").innerHTML = capitalizedName;
   document.getElementById("pic").src = pokeData.sprites.front_default;
   document.getElementById("dexNum").innerHTML = pokeData.id;
@@ -100,11 +99,18 @@ let loadAllComplete = evt => {
 }
 
 let goToPokemon = (evt) => {
-  newurl = url + evt.target.id;
   document.getElementById("PokemonList").style.display = "none";
-  loadSinglePokemon();
+  document.getElementById("pokemon").style.display = "block";
+  generateAPI("choose", evt.target.id);
 }
 
-//generateAPI("random");
 
-displayAllPokemon();
+window.onload = () => {
+  if (document.getElementById("PokemonList") != null) {
+    displayAllPokemon();
+  } else {
+    document.getElementById("pokemon").style.display = "block";
+    var path = window.location.pathname;
+
+  }
+}
