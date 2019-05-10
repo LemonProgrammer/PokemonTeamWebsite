@@ -41,13 +41,13 @@ let loadData = () => {
 let loadComplete = evt => {
   pokeData = JSON.parse(request.responseText);
 
-  try{
-    let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
-    console.log(types);
-  }catch(err){
-    let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name}`;
-    console.log(types);
-  }
+  // try{
+  //   let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
+  //   console.log(types);
+  // }catch(err){
+  //   let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name}`;
+  //   console.log(types);
+  // }
     
   console.log(pokeData);
   
