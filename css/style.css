@@ -57,3 +57,11 @@ p {
     border: 2px #999 solid;
     border-top: 0px;
 }
+
+#pokemon { 
+    display: none;
+}
+
+.pokeLink a {
+    cursor: pointer;
+}
