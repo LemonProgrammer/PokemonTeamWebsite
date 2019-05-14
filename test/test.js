@@ -112,8 +112,12 @@ window.onload = () => {
     document.getElementById("pokemon").style.display = "block";
     var path = window.location.pathname;
 
-    if(path.toLocaleLowerCase().includes("random")) {
+    if (path.toLocaleLowerCase().includes("random")) {
       generateAPI("random");
+    } else {
+      //this is for selecting a pokemon with the whole list
+      //0 = can pokemon name or index
+      generateAPI("choose", 0);
     }
   }
 }
