@@ -3,6 +3,19 @@ let request = new XMLHttpRequest();
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
+let randomPokemonTeam = [];
+
+class Pokemon {
+  constructor(name, dexNum, sprite, type, ability, hiddenA, baseXP) {
+    this.name = name;
+    this.dexNum = dexNum;
+    this.sprite = sprite;
+    this.type = type;
+    this.ability = ability;
+    this.hiddenA = hiddenA;
+    this.baseXP = baseXP;
+  }
+}
 
 let generateAPI = (choice, id) => {
   switch (choice) {
@@ -34,6 +47,12 @@ let displayAllPokemon = () => {
 let loadSinglePokemon = () => {
   request.open('GET', newurl);
   request.onload = loadSingleComplete;
+  request.send();
+}
+
+let loadTeamMember = () => {
+  request.open('GET', newurl);
+  request.onload = loadTeamMemberComplete;
   request.send();
 }
 
@@ -85,6 +104,31 @@ let loadSingleComplete = evt => {
   document.getElementById("baseXP").innerHTML = pokeData.base_experience;
 }
 
+let loadTeamMemberComplete = evt => {
+  pokeData = JSON.parse(request.responseText);
+  console.log(pokeData);
+
+  let name = pokeData.name;
+  let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  let types = [];
+  pokeData.types.forEach(element => {
+    types.push(element.type.name);
+  });
+
+  let abilities = [];
+  let hiddenAbility = "";
+  pokeData.abilities.forEach(element => {
+    if (element.is_hidden) {
+      hiddenAbility = element.ability.name;
+    } else {
+      abilities.push(element.ability.name);
+    }
+  });
+
+  randomPokemonTeam.push(new Pokemon(capitalizedName, pokeData.id, pokeData.sprites.front_default, types, abilities, hiddenAbility, pokeData.base_experience));
+}
+
 let loadAllComplete = evt => {
   pokeData = JSON.parse(request.responseText);
   console.log(pokeData);
@@ -117,7 +161,7 @@ let goToPokemon = (evt) => {
 window.onload = () => {
   if (document.getElementById("PokemonList") != null) {
     displayAllPokemon();
-  } else {
+  } else if (document.getElementById("pokemon") != null) {
     document.getElementById("pokemon").style.display = "block";
     var path = window.location.pathname;
 
@@ -130,3 +174,30 @@ window.onload = () => {
     }
   }
 }
+
+let generateRandomTeam = () => {
+  // generateRandomTeamMember();
+  // console.log(newurl);
+
+  // await generateRandomTeamMember();
+  // console.log(newurl);
+
+  // for(let x = 0; x < 6;) {
+  //   generateRandomTeamMember();
+  //   x++
+  //   console.log(newurl);
+  // }
+
+  generateRandomTeamMember();
+  console.log(newurl);
+
+  console.log(randomPokemonTeam);
+}
+
+let generateRandomTeamMember = () => {
+  let random = Math.floor(Math.random() * (807 - 1)) + 1;
+  newurl = url + random;
+  loadTeamMember();
+}
+
+generateRandomTeam();
