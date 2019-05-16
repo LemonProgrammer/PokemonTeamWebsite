@@ -119,3 +119,17 @@ input[type="text"] {
 .pokeLink a {
     cursor: pointer;
 }
+
+th, td {
+    border: 1px solid red;
+    margin: auto;
+    width: 50%;
+    align-content: center;
+    padding: 4px;
+    font-size: 30px;
+}
+
+#pokemon{
+    text-align: center;
+    background-color: #999;
+}

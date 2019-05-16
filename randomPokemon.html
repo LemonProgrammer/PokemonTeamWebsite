@@ -10,12 +10,34 @@
 </head>
 
 <body>
+    <nav>
+        <div>
+            <ul class="poke-nav">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./pages/generateTeam.html">Generator</a>
+                </li>
+                <li>
+                    <a href="selectPokemon.html">Select a Pokemon</a>
+                </li>
+                <li>
+                    <a href="randomPokemon.html">Random Pokemon</a>
+                </li>
+                <form class="searchbar">
+                    <input type="text" placeholder="Search Pokemon..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </ul>
+        </div>
+    </nav>
     <div id='pokemon'>
-        <h3 id='name'></h3>
+        <h1 id='name'></h1>
+        <td><img id="pic"></td>
         <table id='details'>
             <tr>
                 <td>Pokedex Number</td>
-                <td>Sprite</td>
                 <td>Type</td>
                 <td>Abilities</td>
                 <td>Hidden Ability</td>
@@ -23,7 +45,6 @@
             </tr>
             <tr>
                 <td id='dexNum'></td>
-                <td><img id="pic"></td>
                 <td id='type'></td>
                 <td id='abilities'></td>
                 <td id='hidden'></td>
