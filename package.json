@@ -22,5 +22,7 @@
     "url": "https://github.com/LemonProgrammer/PokemonTeamWebsite/issues"
   },
   "homepage": "https://github.com/LemonProgrammer/PokemonTeamWebsite#readme",
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  }
 }
