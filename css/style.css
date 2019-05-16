@@ -120,10 +120,13 @@ input[type="text"] {
     cursor: pointer;
 }
 
-th, td {
-    border: 1px solid red;
+table{
     margin: auto;
     width: 50%;
+}
+
+th, td {
+    border: 1px solid red;
     align-content: center;
     padding: 4px;
     font-size: 30px;
@@ -131,5 +134,18 @@ th, td {
 
 #pokemon{
     text-align: center;
-    background-color: #999;
+    margin-left: 7%;
+    margin-right: 7%;
+    background-color: #CCC;
+    padding: 10px;
+    border: 2px #999 solid;
 }
+
+#pic{
+    height: 300px;
+    width: 300px;
+}
+
+/*
+if pic non-existent pull pic from internet
+*/
