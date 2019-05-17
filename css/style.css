@@ -118,6 +118,22 @@ input[type="text"] {
 
 .pokeLink a {
     cursor: pointer;
+    display: block;
+    margin-left: 13%;
+    margin-right: 13%;
+    padding: 15px;
+    color: #FFF;
+    font-family: "Pokemon Classic";
+    border: 3px solid #555;
+    background-color: #111;
+    border-left-width: 4px;
+    border-right-width: 4px;
+}
+
+.pokeLink a:hover {
+    color: #ffcb05;
+    background-color: #f11f1f;
+    border-color: #FFF;
 }
 
 table{
@@ -130,6 +146,10 @@ th, td {
     align-content: center;
     padding: 4px;
     font-size: 30px;
+}
+
+td {
+    font-family: "Classic";
 }
 
 #pokemon{
@@ -151,6 +171,10 @@ th, td {
     font-size: 30px;
 }
 
+
+#PokemonList {
+    background-color: #CCC;
+}
 
 /*
 if pic non-existent pull pic from internet
