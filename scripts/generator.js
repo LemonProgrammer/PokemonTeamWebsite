@@ -37,14 +37,19 @@ let createCards = () => {
     let container = document.createElement('div');
     container.className = 'container';
     container.id = 'cardContainer';
+
     let card = document.createElement('div');
     card.className = 'card';
+
     let row = document.createElement('div');
     row.className = 'row';
+
     let imgCol = document.createElement('div');
     imgCol.className = 'col-md-3';
+    
     let textCol = document.createElement('div');
     textCol.className = 'col-md-8 px-3';
+
     let cardBlock = document.createElement('div');
     cardBlock.className = 'card-block-px4';
 
@@ -53,6 +58,7 @@ let createCards = () => {
     row.appendChild(imgCol);
     row.appendChild(textCol);
     textCol.appendChild(cardBlock);
+
     let resDisplay = document.getElementById('resultsDisplay');
     resDisplay.appendChild(container);
 };
@@ -95,6 +101,7 @@ let generatePokemonTeam = (pokeData) => {
     teamDisplayCard[0].appendChild(pokePic);
 
     pokeInfoDiv[0].appendChild(pokeHeader);
+    pokeInfoDiv[0].appendChild(pokePic);
     pokeInfoDiv[0].appendChild(pokeHeader2);
     pokeInfoDiv[0].appendChild(pokeHeader3);
 };
