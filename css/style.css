@@ -119,3 +119,8 @@ input[type="text"] {
 .pokeLink a {
     cursor: pointer;
 }
+
+.pokeData {
+    cursor: pointer;
+    user-select: none;
+}
