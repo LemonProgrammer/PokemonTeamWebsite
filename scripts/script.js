@@ -4,6 +4,8 @@ let request = new XMLHttpRequest();
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
 
+let pokemonTeamNames = [];
+
 let generateRandomNumber = (min = 1, max = 807) => {
   return Math.floor(Math.random() * max) + min;
 };
@@ -77,6 +79,7 @@ let requestAPI = (url) => {
 let generatePokemonTeam = (pokeData) => {
   let name = pokeData.name;
   let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+  pokemonTeamNames.push(capitalizedName);
 
   let types = [];
   pokeData.types.forEach(element => {
