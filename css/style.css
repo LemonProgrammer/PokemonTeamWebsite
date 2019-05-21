@@ -118,4 +118,73 @@ input[type="text"] {
 
 .pokeLink a {
     cursor: pointer;
+    display: block;
+    margin-left: 13%;
+    margin-right: 13%;
+    padding: 15px;
+    color: #FFF;
+    font-family: "Pokemon Classic";
+    border: 3px solid #555;
+    background-color: #111;
+    border-left-width: 4px;
+    border-right-width: 4px;
 }
+
+.pokeLink a:hover {
+    color: #ffcb05;
+    background-color: #f11f1f;
+    border-color: #FFF;
+}
+
+table{
+    margin: auto;
+    width: 50%;
+}
+
+th, td {
+    border: 1px solid red;
+    align-content: center;
+    padding: 4px;
+    font-size: 30px;
+}
+
+td {
+    font-family: "Classic";
+}
+
+#pokemon{
+    text-align: center;
+    margin-left: 7%;
+    margin-right: 7%;
+    background-color: #CCC;
+    padding: 10px;
+    border: 2px #999 solid;
+}
+
+#pic{
+    height: 200px;
+    width: 200px;
+}
+
+#resultsDisplay{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#PokemonList {
+    background-color: #CCC;
+}
+
+.pokeData {
+    cursor: pointer;
+    user-select: none;
+}
+
+.gtBtn {
+    margin-left: 40px;
+}
+
+/*
+if pic non-existent pull pic from internet
+*/
