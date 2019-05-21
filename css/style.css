@@ -181,6 +181,10 @@ td {
     user-select: none;
 }
 
+.gtBtn {
+    margin-left: 40px;
+}
+
 /*
 if pic non-existent pull pic from internet
 */

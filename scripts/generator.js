@@ -12,7 +12,7 @@ let generatePokemonURL = (url) => {
 };
 
 let populateMenu = () => {
-    let menu = document.getElementById('menu');
+    let menu = document.getElementById('controls');
     let generateButton = document.createElement('BUTTON');
     generateButton.innerHTML = "Generate";
     generateButton.id = 'genButton';

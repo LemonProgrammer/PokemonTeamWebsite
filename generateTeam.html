@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href='css/style.css' rel='stylesheet' />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Pokemon Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='css/style.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Pokemon Generator</title>
 </head>
+
 <body>
     <header class="title">
         <h1>Pokemon Generator</h1>
@@ -35,17 +37,42 @@
         </div>
     </nav>
 
-    <h1>Controls</h1>
-    <div id="menu">
-    </div>
-    <hr>
-    <section>
+    <div id="generateTeam">
+        <h1>Controls</h1>
+        <div id="controls"></div>
+        <hr>
+        <section>
             <div id="resultsDisplay">
-                <h1>Your Generated Pokemon Team</h1>   
+                <h1>Your Generated Pokemon Team</h1>
             </div>
-    </section>
-    
+        </section>
+    </div>
+
     <hr>
-<script  src="../scripts/generator.js"></script>
+
+    <div id='pokemon'>
+        <h1 id='name'></h1>
+        <td><img id="pic"></td>
+        <table id='details'>
+            <tr>
+                <td>Pokedex Number</td>
+                <td>Type</td>
+                <td>Abilities</td>
+                <td>Hidden Ability</td>
+                <td>Base Experience</td>
+            </tr>
+            <tr>
+                <td id='dexNum'></td>
+                <td id='type'></td>
+                <td id='abilities'></td>
+                <td id='hidden'></td>
+                <td id='baseXP'></td>
+            </tr>
+        </table>
+
+    </div>
+    
+    <script src="scripts/script.js"></script>
 </body>
+
 </html>
