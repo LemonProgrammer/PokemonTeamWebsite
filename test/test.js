@@ -68,7 +68,15 @@ let loadSingleComplete = evt => {
 
   let name = pokeData.name;
   let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
-
+  // try{
+  //   let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
+  //   console.log(types);
+  // }catch(err){
+  //   let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name}`;
+  //   console.log(types);
+  // }
+    
+  console.log(pokeData);
   try {
     let types = document.getElementById("type").innerHTML = `${pokeData.types[0].type.name} & ${pokeData.types[1].type.name}`;
     console.log(types);
@@ -86,6 +94,7 @@ let loadSingleComplete = evt => {
       abilities += element.ability.name + " ";
     }
   });
+
 
   document.getElementById("name").innerHTML = capitalizedName;
   document.getElementById("pic").src = pokeData.sprites.front_default;
