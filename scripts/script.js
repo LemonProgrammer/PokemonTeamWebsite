@@ -234,3 +234,23 @@ window.onload = () => {
     listenForClicks();
   }
 }
+
+function RedirectToSearch() {
+  location.replace("selectPokemon.html");
+}
+
+function ValidateMon() {
+  var result;
+  var searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
+  console.log(searchText);
+  pokeData.results.forEach(pokeman => {
+    if(searchText === pokeman.name) {
+      result = true;
+      console.log(result);
+    }
+    else {
+      result = false;
+      console.log(result);
+    }
+  });
+}
