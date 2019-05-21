@@ -238,6 +238,7 @@ window.onload = () => {
   }
 }
 
+
 function download(createCards, filename, type) {
   var file = new Blob([pokemonTeamNames], {type: type});
   if(window.navigator.msSaveBlob)
@@ -255,4 +256,24 @@ function download(createCards, filename, type) {
           document.body.removeChild(a);
           window.URL.revokeObjectURL(url);  
       }, 0);
+
+function RedirectToSearch() {
+  location.replace("selectPokemon.html");
+}
+
+function ValidateMon() {
+  var result;
+  var searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
+  console.log(searchText);
+  pokeData.results.forEach(pokeman => {
+    if(searchText === pokeman.name) {
+      result = true;
+      console.log(result);
+    }
+    else {
+      result = false;
+      console.log(result);
+    }
+  });
+}
 }
