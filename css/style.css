@@ -104,6 +104,14 @@ input[type="text"] {
     width: 250px;
     font-family: "Pokemon Classic";
     font-size: 10px;
+    background-color: #DBEDFF;
+    border-color: #A8BACC;
+    padding-left: 3px;
+}
+
+button[type="submit"] {
+    background-color: #ffcb05;
+    border-color: #CC9802;
 }
 
 .searchbar {
@@ -191,6 +199,26 @@ td {
     background-color: #ffcb05;
     border-color: #111;
     padding: 5px;
+}
+
+#controls {
+    text-align: center;
+}
+
+.gtBtn {
+    font-family: "Classic";
+    font-size: 20px;
+    background-color: #DBEDFF;
+    margin: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px #111 solid;
+    padding: 10px;
+}
+
+.controlHead {
+    display: flex;
+    text-align: center;
 }
 
 /*

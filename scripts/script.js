@@ -261,8 +261,10 @@ function download(createCards, filename, type) {
       setTimeout(function() {
           document.body.removeChild(a);
           window.URL.revokeObjectURL(url);  
-      }, 0);
 
+      }, 0);
+    }
+    
 function RedirectToSearch() {
   location.replace("selectPokemon.html");
 }
@@ -281,7 +283,6 @@ function ValidateMon() {
       console.log(result);
     }
   });
-}
 }
 
 // let processSearch = () => {
