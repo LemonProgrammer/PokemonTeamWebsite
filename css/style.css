@@ -145,7 +145,7 @@ th, td {
     border: 1px solid red;
     align-content: center;
     padding: 4px;
-    font-size: 30px;
+    font-size: 27px;
 }
 
 td {
@@ -162,8 +162,8 @@ td {
 }
 
 #pic{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
 }
 
 #resultsDisplay{
