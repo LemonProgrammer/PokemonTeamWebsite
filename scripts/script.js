@@ -113,6 +113,7 @@ let generatePokemonTeam = (pokeData) => {
   pokeInfoDiv.appendChild(pokePic);
   pokeInfoDiv.appendChild(pokeType);
   pokeInfoDiv.appendChild(pokeXP);
+  pokeInfoDiv.appendChild(document.createElement('hr'));
 };
 // End of Random Team Generator
 // For Select and Random Pokemon Pages
