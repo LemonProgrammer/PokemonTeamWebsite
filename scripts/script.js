@@ -47,6 +47,7 @@ let generateTeam = () => {
 
       requestAPI(newurl);
       newurl = url;
+      hasTeamGenerated = true;
     }
   };
 }
@@ -56,6 +57,7 @@ let clearTeam = () => {
 
   if (hasTeamGenerated) {
     containerNode.parentNode.removeChild(containerNode);
+    hasTeamGenerated = false;
   }
 };
 
@@ -221,22 +223,45 @@ window.onload = () => {
     displayAllPokemon();
 
   } else if (document.getElementById("generateTeam") == null) {
-    document.getElementById("pokemon").style.display = "block";
-    let path = window.location.pathname;
+    if(document.getElementById("pokemon") != null)
+    {
+      document.getElementById("pokemon").style.display = "block";
+      let path = window.location.pathname;
+  
+      if (path.toLocaleLowerCase().includes("random")) {
+        generateAPI("random");
+  
+      } else {
+        //this is for selecting a pokemon with the whole list
+        //0 = can pokemon name or index
+        generateAPI("choose", 0);
+      }
 
-    if (path.toLocaleLowerCase().includes("random")) {
-      generateAPI("random");
-
-    } else {
-      //this is for selecting a pokemon with the whole list
-      //0 = can pokemon name or index
-      generateAPI("choose", 0);
     }
   } else {
     populateRandTeamControls();
     listenForClicks();
   }
 }
+
+
+function download(createCards, filename, type) {
+  var file = new Blob([pokemonTeamNames], {type: type});
+  if(window.navigator.msSaveBlob)
+  window.navigator.msSaveBlob(file, filename);
+  else{
+
+  }
+  var a = document.createElement("a"),
+  url= URL.createObjectURL(file);
+  a.href = url 
+  a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function() {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);  
+      }, 0);
 
 function RedirectToSearch() {
   location.replace("selectPokemon.html");
@@ -257,3 +282,15 @@ function ValidateMon() {
     }
   });
 }
+}
+
+// let processSearch = () => {
+//   let currentURL = window.location.href;
+//   console.log(currentURL);
+//   if(currentURL.slice(currentURL.indexOf("/s"), currentURL.indexOf('?'))== "selectPokemon.html")
+//   {
+//   let searchString = window.location.search;
+//   console.log("search string: ", searchString);
+//   }
+// };
+// processSearch();

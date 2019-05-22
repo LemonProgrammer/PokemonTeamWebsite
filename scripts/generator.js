@@ -124,6 +124,9 @@ let start = () => {
 
 };
 
+
+
+
 populateMenu();
 listenForClicks();
 
