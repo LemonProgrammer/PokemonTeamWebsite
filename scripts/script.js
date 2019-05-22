@@ -247,7 +247,7 @@ function ValidateMon() {
   var searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
   console.log(searchText);
   pokeData.results.forEach(pokeman => {
-    if(searchText === pokeman.name) {
+    if(pokeman.name.includes(searchText)) {
       result = true;
       console.log(result);
     }
