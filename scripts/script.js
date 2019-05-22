@@ -3,7 +3,7 @@ let request = new XMLHttpRequest();
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
-
+// For Random Team Generator
 let pokemonTeamNames = [];
 
 let generateRandomNumber = (min = 1, max = 807) => {
@@ -38,7 +38,7 @@ let listenForClicks = () => {
 let hasTeamGenerated = false;
 let generateTeam = () => {
   let teamSize = 6;
-  let containerNode = document.getElementById('pokeContainer');
+  // let containerNode = document.getElementById('pokeContainer');
 
   if (!hasTeamGenerated) {
     createCards();
@@ -47,8 +47,8 @@ let generateTeam = () => {
 
       requestAPI(newurl);
       newurl = url;
-      hasTeamGenerated = true;
     }
+    hasTeamGenerated = true;
   };
 }
 
@@ -114,7 +114,8 @@ let generatePokemonTeam = (pokeData) => {
   pokeInfoDiv.appendChild(pokeType);
   pokeInfoDiv.appendChild(pokeXP);
 };
-
+// End of Random Team Generator
+// For Select and Random Pokemon Pages
 let generateAPI = (choice, id) => {
   switch (choice) {
     case "random":
@@ -244,7 +245,7 @@ window.onload = () => {
   }
 }
 
-
+// For Random Team Generator Page
 function download(createCards, filename, type) {
   var file = new Blob([pokemonTeamNames], {type: type});
   if(window.navigator.msSaveBlob)
@@ -262,7 +263,7 @@ function download(createCards, filename, type) {
           document.body.removeChild(a);
           window.URL.revokeObjectURL(url);  
       }, 0);
-
+// For Search Implementation
 function RedirectToSearch() {
   location.replace("selectPokemon.html");
 }
