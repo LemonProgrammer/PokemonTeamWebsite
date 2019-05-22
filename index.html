@@ -30,9 +30,11 @@
                     <a href="randomPokemon.html">Random Pokemon</a>
                 </li>
                 <div class="searchbar">
-                    <input type="text" placeholder="Search Pokemon..." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
+                    <form id="pokeForm" >
+                            <input id="pokeSearch" type="text" placeholder="Search Pokemon..." name="search">
+                            <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>        
+                    </form>
+                  </div>
             </ul>
         </div>
     </nav>
@@ -54,7 +56,12 @@
             For example: Pokemon Red will only show the pokemon it has in that specific game.
         </p>
     </div>
+    <div id="messageDiv">
+        <h1 id="inputResult"></h1>
+        <h3 id="errMessage"></h3>
+    </div>
     <script src="index.js"></script>
+    <script src="searchEngine.js"></script>
 </body>
 
 </html>

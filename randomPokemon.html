@@ -26,9 +26,11 @@
                     <a href="randomPokemon.html">Random Pokemon</a>
                 </li>
                 <div class="searchbar">
-                    <input type="text" placeholder="Search Pokemon..." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
+                    <form id="pokeForm" method="GET">
+                            <input type="text" placeholder="Search Pokemon..." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>        
+                    </form>
+                   </div>
             </ul>
         </div>
     </nav>
@@ -54,6 +56,7 @@
     </div>
 
     <script src="index.js"></script>
+    <script src="searchEngine.js"></script>
 </body>
 
 </html>
