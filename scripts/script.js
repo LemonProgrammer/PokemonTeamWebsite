@@ -317,13 +317,11 @@ let displayPokemonSearchList = () => {
   pokemonSearchList = [];
 }
 
-// let processSearch = () => {
-//   let currentURL = window.location.href;
-//   console.log(currentURL);
-//   if(currentURL.slice(currentURL.indexOf("/s"), currentURL.indexOf('?'))== "selectPokemon.html")
-//   {
-//   let searchString = window.location.search;
-//   console.log("search string: ", searchString);
-//   }
-// };
-// processSearch();
+let searchBar = document.getElementById('SearchName');
+if (searchBar != null) {
+  searchBar.onkeydown = event => {
+    if (event.keyCode == 13) {
+      ValidateMon();
+    }
+  }
+}
