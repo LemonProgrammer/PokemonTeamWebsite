@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href='css/style.css' rel='stylesheet' />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Pokemon Generator</title>
-</head>
-<body>
 
-        <nav>
-                <div>
-                    <ul class="poke-nav">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="generateTeam.html">Generator</a>
-                        </li>
-                        <li>
-                            <a href="selectPokemon.html">Select a Pokemon</a>
-                        </li>
-                        <li>
-                            <a href="randomPokemon.html">Random Pokemon</a>
-                        </li>
-                        <form class="searchbar">
-                            <input type="text" placeholder="Search Pokemon..." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='css/style.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <iframe width="0" height="0" src="https://www.youtuberepeater.com/watch?v=axKDCZd4Mfc#gsc.tab=0" frameborder="0"></iframe>
+    <title>Pokemon Generator</title>
+</head>
+
+<body>
+    <header class="title">
+        <h1>Pokemon Generator</h1>
+    </header>
+    <nav>
+        <div>
+            <ul class="poke-nav">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="generateTeam.html">Generator</a>
+                </li>
+                <li>
+                    <a href="selectPokemon.html">Select a Pokemon</a>
+                </li>
+                <li>
+                    <a href="randomPokemon.html">Random Pokemon</a>
+                </li>
+                <div class="searchbar">
+                    <button class="redirect" type="submit" onclick="RedirectToSearch()">Search For Pokemon?</button>
                 </div>
             </ul>
         </div>
     </nav>
 
-    <h1>Controls</h1>
-    <div id="menu">
-
+    <div id="generateTeam">
+        <h1>Controls</h1>
+        <div id="controls"><a href="" id="a"></a>
+            <button onclick="download('file text', 'myfilename.txt', 'text/plain')">Create file</button>
+            </div>
+        <hr>
+        <section>
+            <div id="resultsDisplay">
+                <h1>Your Generated Pokemon Team</h1>
+            </div>
+        </section>
     </div>
-    <hr>
-    <section>
-        <div id="resultsDisplay">
-            <h1>Your Generated Pokemon Team</h1>
-           
-        </div>
-    </section>
+
+    <div id='pokemon'>
+        <h1 id='name'></h1>
+        <td><img id="pic"></td>
+        <table id='details'>
+            <tr>
+                <td>Pokedex Number</td>
+                <td>Type</td>
+                <td>Abilities</td>
+                <td>Hidden Ability</td>
+                <td>Base Experience</td>
+            </tr>
+            <tr>
+                <td id='dexNum'></td>
+                <td id='type'></td>
+                <td id='abilities'></td>
+                <td id='hidden'></td>
+                <td id='baseXP'></td>
+            </tr>
+        </table>
+    </div>
     
     <hr>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="scripts/generator.js"></script>
+
+    
+    <script src="scripts/script.js"></script>
 </body>
+
 </html>
