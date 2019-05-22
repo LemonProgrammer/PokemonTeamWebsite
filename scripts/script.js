@@ -3,7 +3,7 @@ let request = new XMLHttpRequest();
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
-
+// For Random Team Generator
 let pokemonTeamNames = [];
 
 let generateRandomNumber = (min = 1, max = 807) => {
@@ -38,7 +38,7 @@ let listenForClicks = () => {
 let hasTeamGenerated = false;
 let generateTeam = () => {
   let teamSize = 6;
-  let containerNode = document.getElementById('pokeContainer');
+  // let containerNode = document.getElementById('pokeContainer');
 
   if (!hasTeamGenerated) {
     createCards();
@@ -47,8 +47,8 @@ let generateTeam = () => {
 
       requestAPI(newurl);
       newurl = url;
-      hasTeamGenerated = true;
     }
+    hasTeamGenerated = true;
   };
 }
 
@@ -71,11 +71,11 @@ let createCards = () => {
 
 let requestAPI = (url) => {
   fetch(url)
-       .then(response => response.json())
-       .then(data => {
-           generatePokemonTeam(data);
-       })
-       .catch(err => console.log(err));
+    .then(response => response.json())
+    .then(data => {
+      generatePokemonTeam(data);
+    })
+    .catch(err => console.log(err));
 };
 
 let generatePokemonTeam = (pokeData) => {
@@ -85,8 +85,8 @@ let generatePokemonTeam = (pokeData) => {
 
   let types = [];
   pokeData.types.forEach(element => {
-      typeName = element.type.name.charAt(0).toUpperCase() + element.type.name.slice(1);
-      types.push(typeName);
+    typeName = element.type.name.charAt(0).toUpperCase() + element.type.name.slice(1);
+    types.push(typeName);
   });
 
   let pokeInfoDiv = document.getElementById('pokeContainer');
@@ -113,8 +113,10 @@ let generatePokemonTeam = (pokeData) => {
   pokeInfoDiv.appendChild(pokePic);
   pokeInfoDiv.appendChild(pokeType);
   pokeInfoDiv.appendChild(pokeXP);
+  pokeInfoDiv.appendChild(document.createElement('hr'));
 };
-
+// End of Random Team Generator
+// For Select and Random Pokemon Pages
 let generateAPI = (choice, id) => {
   switch (choice) {
     case "random":
@@ -210,7 +212,7 @@ let goToPokemon = evt => {
   let list = document.getElementById("PokemonList");
   let pokemon = document.getElementById("pokemon");
 
-  if(list != null) {
+  if (list != null) {
     document.getElementById("PokemonList").style.display = "none";
   }
 
@@ -223,14 +225,13 @@ window.onload = () => {
     displayAllPokemon();
 
   } else if (document.getElementById("generateTeam") == null) {
-    if(document.getElementById("pokemon") != null)
-    {
+    if (document.getElementById("pokemon") != null) {
       document.getElementById("pokemon").style.display = "block";
       let path = window.location.pathname;
-  
+
       if (path.toLocaleLowerCase().includes("random")) {
         generateAPI("random");
-  
+
       } else {
         //this is for selecting a pokemon with the whole list
         //0 = can pokemon name or index
@@ -245,53 +246,53 @@ window.onload = () => {
 }
 
 
-function download(createCards, filename, type) {
-  var file = new Blob([pokemonTeamNames], {type: type});
-  if(window.navigator.msSaveBlob)
-  window.navigator.msSaveBlob(file, filename);
-  else{
+let download = (createCards, filename, type) => {
+  let file = new Blob([pokemonTeamNames], {
+    type: type
+  });
 
-  }
-  var a = document.createElement("a"),
-  url= URL.createObjectURL(file);
-  a.href = url 
+  if (window.navigator.msSaveBlob)
+    window.navigator.msSaveBlob(file, filename);
+  else {}
+
+  pokemonTeamNames = [];
+
+  let a = document.createElement("a"),
+    purl = URL.createObjectURL(file);
+  a.href = purl;
   a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function() {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);  
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function () {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(purl);
+  }, 0);
+}
 
-      }, 0);
-    }
-    
-function RedirectToSearch() {
+let RedirectToSearch = () => {
   location.replace("selectPokemon.html");
 }
 
-function ValidateMon() {
-  var result;
-  var searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
-  console.log(searchText);
+let pokemonSearchList = [];
+let ValidateMon = () => {
+  let searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
+
   pokeData.results.forEach(pokeman => {
-    if(searchText === pokeman.name) {
-      result = true;
-      console.log(result);
-    }
-    else {
-      result = false;
-      console.log(result);
+    if (pokeman.name.includes(searchText)) {
+      let capitalizedName = pokeman.name.charAt(0).toUpperCase() + pokeman.name.slice(1);
+      pokemonSearchList.push(capitalizedName);
     }
   });
+
+  displayPokemonSearchList();
+}
 }
 
-// let processSearch = () => {
-//   let currentURL = window.location.href;
-//   console.log(currentURL);
-//   if(currentURL.slice(currentURL.indexOf("/s"), currentURL.indexOf('?'))== "selectPokemon.html")
-//   {
-//   let searchString = window.location.search;
-//   console.log("search string: ", searchString);
-//   }
-// };
-// processSearch();
+let searchBar = document.getElementById('SearchName');
+if (searchBar != null) {
+  searchBar.onkeydown = event => {
+    if (event.keyCode == 13) {
+      ValidateMon();
+    }
+  }
+}
