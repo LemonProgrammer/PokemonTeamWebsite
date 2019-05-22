@@ -286,7 +286,6 @@ let ValidateMon = () => {
 
   displayPokemonSearchList();
 }
-}
 
 let searchBar = document.getElementById('SearchName');
 if (searchBar != null) {
