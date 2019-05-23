@@ -3,7 +3,7 @@ let request = new XMLHttpRequest();
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
-// For Random Team Generator
+
 let pokemonTeamNames = [];
 
 let generateRandomNumber = (min = 1, max = 807) => {
@@ -38,7 +38,6 @@ let listenForClicks = () => {
 let hasTeamGenerated = false;
 let generateTeam = () => {
   let teamSize = 6;
-  // let containerNode = document.getElementById('pokeContainer');
 
   if (!hasTeamGenerated) {
     createCards();
@@ -54,9 +53,12 @@ let generateTeam = () => {
 
 let clearTeam = () => {
   let containerNode = document.getElementById('pokeContainer');
+  let pokemon = document.getElementById("pokemon");
 
   if (hasTeamGenerated) {
     containerNode.parentNode.removeChild(containerNode);
+    document.getElementById
+    pokemon.style.display = "none";
     hasTeamGenerated = false;
   }
 };
@@ -115,8 +117,7 @@ let generatePokemonTeam = (pokeData) => {
   pokeInfoDiv.appendChild(pokeXP);
   pokeInfoDiv.appendChild(document.createElement('hr'));
 };
-// End of Random Team Generator
-// For Select and Random Pokemon Pages
+
 let generateAPI = (choice, id) => {
   switch (choice) {
     case "random":
@@ -191,7 +192,6 @@ let loadAllComplete = evt => {
   console.log(pokeData);
 
   let x = 1;
-
   do {
     let a = document.createElement("a");
     let poke = "poke" + x;
@@ -203,7 +203,7 @@ let loadAllComplete = evt => {
     a.addEventListener('click', goToPokemon);
 
     document.getElementById(poke).appendChild(a);
-
+    
     x++;
   } while (x < 808);
 }
@@ -216,7 +216,7 @@ let goToPokemon = evt => {
     document.getElementById("PokemonList").style.display = "none";
   }
 
-  document.getElementById("pokemon").style.display = "block";
+  pokemon.style.display = "block";
   generateAPI("choose", evt.target.id);
 }
 
@@ -294,4 +294,35 @@ if (searchBar != null) {
       ValidateMon();
     }
   }
+}
+
+let displayPokemonSearchList = () => {
+  let list = document.getElementById("PokemonList");
+  
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+
+  for (let x = 1; x <= pokemonSearchList.length; x++) {
+    let div = document.createElement("div");
+    div.id = "poke" + x;
+    div.setAttribute('class', 'pokeLink');
+    document.getElementById("PokemonList").appendChild(div);
+  }
+
+  let x = 1;
+  do {
+    let a = document.createElement("a");
+    let poke = "poke" + x;
+
+    a.innerHTML = pokemonSearchList[x - 1];
+    a.id = x;
+    a.addEventListener('click', goToPokemon);
+
+    document.getElementById(poke).appendChild(a);
+
+    x++;
+  } while (x <= pokemonSearchList.length);
+
+  pokemonSearchList = [];
 }
