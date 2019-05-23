@@ -48,6 +48,12 @@ p {
     text-align: center;
 }
 
+.titleText {
+    text-decoration: none;
+    color:  #ffcb05;
+    -webkit-text-stroke: 1px #3b5ba7;
+}
+
 .container {
     display: block;
     margin-left: 15%;
@@ -84,7 +90,7 @@ p {
     text-decoration: none;
     margin: 10px;
     font-family: "Athens";
-    color: #111;
+    color: #ffcb05;
     font-size: 24px;
     text-align: center;
     float: left;
@@ -219,6 +225,10 @@ td {
 .controlHead {
     display: flex;
     text-align: center;
+}
+
+iframe {
+    display: none;
 }
 
 /*
