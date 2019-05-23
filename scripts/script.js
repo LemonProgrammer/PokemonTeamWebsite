@@ -59,6 +59,7 @@ let clearTeam = () => {
     containerNode.parentNode.removeChild(containerNode);
     document.getElementById
     pokemon.style.display = "none";
+    pokemonTeamNames = [];
     hasTeamGenerated = false;
   }
 };
@@ -203,7 +204,7 @@ let loadAllComplete = evt => {
     a.addEventListener('click', goToPokemon);
 
     document.getElementById(poke).appendChild(a);
-    
+
     x++;
   } while (x < 808);
 }
@@ -251,9 +252,9 @@ let download = (createCards, filename, type) => {
     type: type
   });
 
-  if (window.navigator.msSaveBlob)
+  if (window.navigator.msSaveBlob) {
     window.navigator.msSaveBlob(file, filename);
-  else {}
+  }
 
   pokemonTeamNames = [];
 
@@ -298,7 +299,7 @@ if (searchBar != null) {
 
 let displayPokemonSearchList = () => {
   let list = document.getElementById("PokemonList");
-  
+
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
