@@ -5,6 +5,7 @@ const url = 'https://pokeapi.co/api/v2/pokemon/';
 let newurl;
 
 let pokemonTeamNames = [];
+let pokemonIds = [];
 
 let generateRandomNumber = (min = 1, max = 807) => {
   return Math.floor(Math.random() * max) + min;
@@ -278,11 +279,15 @@ let pokemonSearchList = [];
 let ValidateMon = () => {
   let searchText = document.getElementById("SearchName").value.toLocaleLowerCase();
 
+  let id = 1;
   pokeData.results.forEach(pokeman => {
     if (pokeman.name.includes(searchText)) {
       let capitalizedName = pokeman.name.charAt(0).toUpperCase() + pokeman.name.slice(1);
       pokemonSearchList.push(capitalizedName);
+      pokemonIds.push(id);
     }
+
+    id++
   });
 
   displayPokemonSearchList();
@@ -317,7 +322,7 @@ let displayPokemonSearchList = () => {
     let poke = "poke" + x;
 
     a.innerHTML = pokemonSearchList[x - 1];
-    a.id = x;
+    a.id = pokemonIds[x - 1];
     a.addEventListener('click', goToPokemon);
 
     document.getElementById(poke).appendChild(a);
@@ -326,4 +331,5 @@ let displayPokemonSearchList = () => {
   } while (x <= pokemonSearchList.length);
 
   pokemonSearchList = [];
+  pokemonIds = [];
 }
