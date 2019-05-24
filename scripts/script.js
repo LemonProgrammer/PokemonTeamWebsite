@@ -117,6 +117,16 @@ let generatePokemonTeam = (pokeData) => {
   pokeInfoDiv.appendChild(pokePic);
   pokeInfoDiv.appendChild(pokeType);
   pokeInfoDiv.appendChild(pokeXP);
+  for(let i = 0; i < 3; i++)
+  {
+    let btnOption = document.createElement('BUTTON');
+    btnOption.setAttribute('name', `opButton${i}`);
+    btnOption.style.height = '50px';
+    btnOption.style.width = '100px';
+    btnOption.style.margin = '0 10px 0 10px';
+    btnOption.innerHTML = btnOption.nodeName;
+    pokeInfoDiv.appendChild(btnOption);
+  }
   pokeInfoDiv.appendChild(document.createElement('hr'));
 };
 
@@ -213,11 +223,11 @@ let loadAllComplete = evt => {
 let goToPokemon = evt => {
   let list = document.getElementById("PokemonList");
   let pokemon = document.getElementById("pokemon");
-
+  // let resDisplay1 = document.getElementById('pokeContainer');
   if (list != null) {
     document.getElementById("PokemonList").style.display = "none";
   }
-
+  // resDisplay1.style.display = "none";
   pokemon.style.display = "block";
   generateAPI("choose", evt.target.id);
 }
