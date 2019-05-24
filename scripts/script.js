@@ -219,6 +219,9 @@ let goToPokemon = evt => {
   }
 
   pokemon.style.display = "block";
+
+  document.getElementsByClassName("searchbar")[0].style.display = "none";
+
   generateAPI("choose", evt.target.id);
 }
 
