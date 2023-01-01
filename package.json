@@ -14,8 +14,8 @@
   "author": "Fernando Blanco, Dakota Miller, Benito Luna, Austin Blandford, Hailey Roberts",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^3.3.1"
   },
   "bugs": {
